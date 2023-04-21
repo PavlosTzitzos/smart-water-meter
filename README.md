@@ -55,6 +55,8 @@ Components:
 
 [WeMos D1 mini Pro ESP8266 (V1.0)](https://grobotronics.com/wemos-d1-mini-pro-esp8266-v1.0-4mbytes.html) or [ESP8266 NODE MCU](https://grobotronics.com/nodemcu-lua-based-esp8266.html)
 
+[WeMos D1 mini and external Power Supply](https://diyi0t.com/esp8266-wemos-d1-mini-tutorial/?utm_content=cmp-true)
+
 [ADS1115 16-bit ADC](https://grobotronics.com/ads1115-16-bit-adc-4-channel-with-programmable-gain-amplifier.html)
 
 Sources:
