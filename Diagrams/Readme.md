@@ -8,6 +8,8 @@
 
 10kOhm internal:
 
+![Internal_Temperature_Sensor](NTC-waterproof.png)
+
 100kOhm external:
 
 # Arduino Uno and ESP8266-01
