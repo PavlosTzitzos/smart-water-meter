@@ -1,6 +1,8 @@
 # smart-water-meter
 A smart water meter project.
 
+![image](Digrams/Total-Project.png)
+
 Components for all versions:
 
 [12V , 4.2A external switching power supply from Meanwell](https://grobotronics.com/12v-4.2a-50.4w-meanwell.html)
