@@ -43,6 +43,8 @@ Components:
 
 [ADS1115 (ADC 16-bit)](https://grobotronics.com/ads1115-16-bit-adc-4-channel-with-programmable-gain-amplifier.html)
 
+Sources:
+
 [DOIT ESP32 DEVKIT V1 and SC Card Module](https://randomnerdtutorials.com/esp32-microsd-card-arduino/)
 
 [DOIT ESP32 DEVKIT V1 and ADS1115](https://microcontrollerslab.com/ads1115-external-adc-with-esp32/)
