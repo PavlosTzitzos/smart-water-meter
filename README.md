@@ -11,7 +11,7 @@ Components for all versions:
 
 [NTC thermistor 10kOhms]()
 
-[Thermocouple]()
+[Thermistor](https://www.aliexpress.com/item/32812361274.html?spm=a2g0o.productlist.0.0.6299625bJ9B6bk&algo_pvid=cde04796-a959-4abf-824a-91ee136e67ef&algo_exp_id=cde04796-a959-4abf-824a-91ee136e67ef-2&pdp_ext_f=%7B%22sku_id%22%3A%2264624873184%22%7D&aff_fcid=bda670e3113c429cb965c274fd3b2625-1682111249736-05190-_ANT75H&tt=CPS_NORMAL&aff_fsk=_ANT75H&aff_platform=portals-tool&sk=_ANT75H&aff_trace_key=bda670e3113c429cb965c274fd3b2625-1682111249736-05190-_ANT75H&terminal_id=33bdaae5a89d48faa3240971fed6191b&afSmartRedirect=y)
 
 [Transistor BD136](https://grobotronics.com/transistor-pnp-45v-1.5a-bd136.html)
 
