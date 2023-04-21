@@ -89,6 +89,10 @@ Sources:
 
 [T-Test](https://www.researchgate.net/post/Hot_to_compare_performances_of_two_sensors)
 
+[Compare Data of Time Series](https://www.researchgate.net/post/How-should-I-compare-temperature-time-series-data-between-two-experiments)
+
+[Covariance / Correlation for Time Series](https://journal.r-project.org/archive/2016/RJ-2016-049/RJ-2016-049.pdf)
+
 # Scientific Report
 
 [Matrix Education](https://www.matrix.edu.au/how-to-write-a-scientific-report/)
