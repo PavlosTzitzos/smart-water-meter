@@ -1,5 +1,7 @@
 # Power Supply AC to 12V 1.5A
 
+![Block_Diagram_Power_Supply](Power-Supply.png)
+
 # Voltage Regulator 12V to 5V 1A
 
 # NTC thermistors circuits
