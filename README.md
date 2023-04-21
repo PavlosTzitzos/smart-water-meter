@@ -85,6 +85,10 @@ Sources:
 
 [Thinger.io Platform](https://thinger.io/)
 
+# Statistical Analysis
+
+[T-Test](https://www.researchgate.net/post/Hot_to_compare_performances_of_two_sensors)
+
 # Scientific Report
 
 [Matrix Education](https://www.matrix.edu.au/how-to-write-a-scientific-report/)
