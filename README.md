@@ -31,7 +31,7 @@ Components:
 
 [ADS1115 (ADC 16-bit)](https://grobotronics.com/ads1115-16-bit-adc-4-channel-with-programmable-gain-amplifier.html)
 
-# Version with esp8266
+# Version with ESP8266
 
 Components:
 
