@@ -18,6 +18,10 @@
 
 ![Electrovalve](Electrovalve-Circuit.png)
 
+# Flow Meter Sensor
+
+![Flow_Meter_Sensor](Flow-Meter-Sensor.png)
+
 # Arduino Uno and ESP8266-01
 
 # Arduino Uno and SD Card Module
