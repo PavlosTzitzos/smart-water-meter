@@ -77,3 +77,16 @@ Sources:
 
 [ESP8266-01 and I2C](https://www.instructables.com/ESP8266-01-With-Multiple-I2C-Devices-Exploring-ESP/)
 
+# Scientific Report
+
+[Matrix Education](https://www.matrix.edu.au/how-to-write-a-scientific-report/)
+
+[University of Wisconsin - Madison](https://writing.wisc.edu/handbook/assignments/sciencereport/)
+
+[DEAKIN University](https://www.deakin.edu.au/students/study-support/resources-and-referencing/academic-skills/writing-a-scientific-report)
+
+[THE UNIVERSITY of NORTH CAROLINA at CHAPEL HILL](https://writingcenter.unc.edu/tips-and-tools/scientific-reports/)
+
+[The University of WAIKATO](https://www.waikato.ac.nz/library/guidance/guides/write-scientific-reports)
+
+
