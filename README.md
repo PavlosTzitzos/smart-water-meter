@@ -1,7 +1,7 @@
 # smart-water-meter
 A smart water meter project.
 
-![image](Digrams/Total-Project.png)
+![image](Diagrams/Total-Project.png)
 
 Components for all versions:
 
