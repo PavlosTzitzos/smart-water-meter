@@ -12,6 +12,8 @@
 
 100kOhm external:
 
+![External_Temperature_Sensor](NTC-external.png)
+
 # Arduino Uno and ESP8266-01
 
 # Arduino Uno and SD Card Module
