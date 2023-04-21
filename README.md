@@ -9,9 +9,9 @@ Components for all versions:
 
 [flow meter sensor , 1/2"](https://www.dfrobot.com/product-2609.html)
 
-[NTC thermistor 10kOhms]
+[NTC thermistor 10kOhms]()
 
-[Thermocouple]
+[Thermocouple]()
 
 [Transistor BD136](https://grobotronics.com/transistor-pnp-45v-1.5a-bd136.html)
 
