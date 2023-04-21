@@ -14,6 +14,10 @@
 
 ![External_Temperature_Sensor](NTC-external.png)
 
+# ElectroValve Circuit
+
+![Electrovalve](Electrovalve-Circuit.png)
+
 # Arduino Uno and ESP8266-01
 
 # Arduino Uno and SD Card Module
