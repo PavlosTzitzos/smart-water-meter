@@ -71,11 +71,19 @@ Sources:
 
 [WeMos D1 mini and ADS1115 and NTC thermistor](https://blog.meteodrenthe.nl/2022/08/07/getting-accurate-ntc-thermistor-readings-with-a-wemos-d1-mini/)
 
-# Theory
+# Protocols
 
 [I2C vs SPI](https://www.totalphase.com/blog/2021/07/i2c-vs-spi-protocol-analyzers-differences-and-similarities/)
 
 [ESP8266-01 and I2C](https://www.instructables.com/ESP8266-01-With-Multiple-I2C-Devices-Exploring-ESP/)
+
+# Logging Data with SD Card
+
+[Writing in SD Card a .csv file](https://rydepier.wordpress.com/2015/08/07/using-an-sd-card-reader-to-store-and-retrieve-data-with-arduino/)
+
+# Monitoring using Online Platform
+
+[Thinger.io Platform](https://thinger.io/)
 
 # Scientific Report
 
