@@ -4,6 +4,10 @@
 
 # Voltage Regulator 12V to 5V 1A
 
+[LM7805 Datasheet](https://pdf1.alldatasheet.com/datasheet-pdf/view/82833/FAIRCHILD/LM7805.html)
+
+![Voltage_Regulator](Voltage-Regulator.png)
+
 # NTC thermistors circuits
 
 10kOhm internal:
