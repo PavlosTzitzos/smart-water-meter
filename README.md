@@ -11,7 +11,7 @@ Components for all versions:
 
 [flow meter sensor , 1/2"](https://www.dfrobot.com/product-2609.html)
 
-[NTC thermistor 10kOhm](https://www.tme.eu/en/details/tt4m10kc3t105/temperature-sensors-ntc/tewa-temperature-sensors/tt4m-10kc3-t105-1500/) [Datasheet](https://www.tme.eu/Document/2fd18682537f203d4e1ff66aa471c66e/TT4-10KC3-T105-1500.pdf)
+[NTC thermistor 10kOhm](https://www.tme.eu/en/details/tt4m10kc3t105/temperature-sensors-ntc/tewa-temperature-sensors/tt4m-10kc3-t105-1500/) / [Datasheet](https://www.tme.eu/Document/2fd18682537f203d4e1ff66aa471c66e/TT4-10KC3-T105-1500.pdf)
 
 [Thermistor 100kOhm](https://www.aliexpress.com/item/32812361274.html?spm=a2g0o.productlist.0.0.6299625bJ9B6bk&algo_pvid=cde04796-a959-4abf-824a-91ee136e67ef&algo_exp_id=cde04796-a959-4abf-824a-91ee136e67ef-2&pdp_ext_f=%7B%22sku_id%22%3A%2264624873184%22%7D&aff_fcid=bda670e3113c429cb965c274fd3b2625-1682111249736-05190-_ANT75H&tt=CPS_NORMAL&aff_fsk=_ANT75H&aff_platform=portals-tool&sk=_ANT75H&aff_trace_key=bda670e3113c429cb965c274fd3b2625-1682111249736-05190-_ANT75H&terminal_id=33bdaae5a89d48faa3240971fed6191b&afSmartRedirect=y)
 
