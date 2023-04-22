@@ -9,7 +9,7 @@ Components for all versions:
 
 [12V Solenoid Valve , 1/2"](https://www.dfrobot.com/product-1530.html)
 
-[flow meter sensor , 1/2"](https://www.dfrobot.com/product-2609.html)
+[water flow meter sensor , 1/2"](https://www.dfrobot.com/product-2608.html)
 
 [NTC thermistor 10kOhm](https://www.tme.eu/en/details/tt4m10kc3t105/temperature-sensors-ntc/tewa-temperature-sensors/tt4m-10kc3-t105-1500/) / [Datasheet](https://www.tme.eu/Document/2fd18682537f203d4e1ff66aa471c66e/TT4-10KC3-T105-1500.pdf)
 
