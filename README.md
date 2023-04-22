@@ -31,6 +31,8 @@ Components:
 
 Sources:
 
+[Arduino Uno and NTC](https://circuitdigest.com/microcontroller-projects/interfacing-Thermistor-with-arduino)
+
 [Arduino Uno and Solenoid Valve](https://bc-robotics.com/tutorials/controlling-a-solenoid-valve-with-arduino/)
 
 [Arduino Uno and ESP8266](https://www.instructables.com/Arduino-UNO-ESP8266-WiFi-Module/)
