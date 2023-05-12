@@ -75,7 +75,7 @@ Sources:
 
 [WeMos D1 mini and SD Card](https://www.instructables.com/Using-the-Wifi-D1-Mini-Real-time-Clock-and-Logger/)
 
-[WeMos D1 mini and I2C for LCD Screen]([http://www.esp8266learning.com/wemos-mini-i2c-lcd-example.php](https://microdigisoft.com/how-to-use-i2c-lcd-with-esp8266-wemos-d1-mini/))
+[WeMos D1 mini and I2C for LCD Screen](https://microdigisoft.com/how-to-use-i2c-lcd-with-esp8266-wemos-d1-mini/)
 
 [WeMos D1 mini and ADS1115 and NTC thermistor](https://blog.meteodrenthe.nl/2022/08/07/getting-accurate-ntc-thermistor-readings-with-a-wemos-d1-mini/)
 
