@@ -1,8 +1,19 @@
+
+#define THINGER_SERIAL_DEBUG
+#include <ThingerESP8266.h>
 #include <Wire.h>
 #include <Adafruit_ADS1X15.h>
 #include <LiquidCrystal_I2C.h>
 
 Adafruit_ADS1115 ads;
+
+#define USERNAME "pavltt12"
+#define DEVICE_ID "smart_water_meter"
+#define DEVICE_CREDENTIAL "S5yN5aYG@8$o3!-D"
+
+#define SSID "Nova-05FEE0"
+#define SSID_PASSWORD "hA69FbMAbfJgHNhb"
+ThingerESP8266 thing(USERNAME, DEVICE_ID, DEVICE_CREDENTIAL);
 
 #define CS_PIN 4
 //#define vd_power_pin 5        // 5V for the voltage divider
@@ -26,6 +37,11 @@ int FlowSensorState = 0;
 float CountFlow = 0.0;
 int tmp = 0;
 
+int relayPin = 0;
+
+float temperature_in;
+float temperature_out;
+
 void setup(void)
 {
   pinMode(FlowSensorPin, INPUT);
@@ -37,6 +53,16 @@ void setup(void)
   lcd.setCursor(0,1); lcd.print(" ");
   //pinMode(vd_power_pin, OUTPUT);
   Serial.begin(9600);
+  thing.add_wifi(SSID, SSID_PASSWORD);
+  pinMode(LED_BUILTIN, OUTPUT);
+  pinMode(relayPin, OUTPUT);
+  thing["valve"] << digitalPin(relayPin);
+  thing["meter"] >> [](pson& out)
+  {
+    out["temp_in"] = temperature_in;
+    out["temp_out"] = temperature_out;
+    out["flow"] = waterFlow;
+  };
   Serial.println("Hello!");
   Serial.println("Getting single-ended readings from AIN0..3");
   Serial.println("ADC Range: +/- 6.144V (1 bit = 3mV/ADS1015, 0.1875mV/ADS1115)");
@@ -67,7 +93,6 @@ void loop(void)
   Serial.print("Thermistor resistance outside");
   Serial.println(R_out);
 
-  float temperature_in;
   temperature_in = R_in / nominal_resistance_in;     // (R/Ro)
   temperature_in = log(temperature_in);                  // ln(R/Ro)
   temperature_in /= beta_in;                   // 1/B * ln(R/Ro)
@@ -75,7 +100,6 @@ void loop(void)
   temperature_in = 1.0 / temperature_in;                 // Invert
   temperature_in -= 273.15;                         // convert absolute temp to C
   
-  float temperature_out;
   temperature_out = R_out / nominal_resistance_out;     // (R/Ro)
   temperature_out = log(temperature_out);                  // ln(R/Ro)
   temperature_out /= beta_out;                   // 1/B * ln(R/Ro)
@@ -93,11 +117,12 @@ void loop(void)
     CountFlow += 1.0 / 150.0; // 150 pulses=1L (refer to product specification）
     FlowSensorState = tmp;
   }
-  delay(2000);
+  //delay(2000);
   lcd.setCursor(0, 1);
 lcd.print(temperature_in, 1);
 lcd.print(" ");
 lcd.print(temperature_out, 1);
 lcd.print(" ");
 lcd.print(waterFlow,2);
+thing.handle();
 }
