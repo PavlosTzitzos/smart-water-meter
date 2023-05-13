@@ -1,70 +1,103 @@
+#include <Wire.h>
+#include <Adafruit_ADS1X15.h>
+#include <LiquidCrystal_I2C.h>
 
-#define ntc_pin A0         // Pin,to which the voltage divider is connected
-#define vd_power_pin 2        // 5V for the voltage divider
-#define nominal_resistance 10000       //Nominal resistance at 25⁰C
-#define nominal_temeprature 25   // temperature for nominal resistance (almost always 25⁰ C)
-#define samplingrate 5    // Number of samples
-#define beta 3950  // The beta coefficient or the B value of the thermistor (usually 3000-4000) check the datasheet for the accurate value.
-#define Rref 10000   //Value of  resistor used for the voltage divider
+Adafruit_ADS1115 ads;
 
-int samples = 0;   //array to store the samples
+#define CS_PIN 4
+//#define vd_power_pin 5        // 5V for the voltage divider
+#define nominal_resistance_in 10000       //Nominal resistance at 25⁰C
+#define nominal_resistance_out 100000       //Nominal resistance at 25⁰C
+#define nominal_temperature 25   // temperature for nominal resistance (almost always 25⁰ C)
+#define sampling_rate 5    // Number of samples
+#define beta_in 3950  // The beta coefficient or the B value of the thermistor (usually 3000-4000) check the datasheet for the accurate value.
+#define beta_out 3950  // The beta coefficient or the B value of the thermistor (usually 3000-4000) check the datasheet for the accurate value.
+#define Rref_in 1000   //Value of  resistor used for the voltage divider
+#define Rref_out 4700   //Value of  resistor used for the voltage divider
 
-int RelayPin = 6;
+int samples_in = 0;   //array to store the samples
+int samples_out = 0;   //array to store the samples
 
-volatile double waterFlow;
+LiquidCrystal_I2C lcd(0x27, 16, 2);
 
-void setup() {
-  waterFlow = 0;
-  attachInterrupt(1, pulse, RISING);  //DIGITAL Pin 3: Interrupt 0
-  pinMode(vd_power_pin, OUTPUT);
-  pinMode(RelayPin, OUTPUT); // Set RelayPin as an output pin
-  Serial.begin(9600);   //initialize serial communication at a baud rate of 9600
-}
-void loop() {
-  Serial.print("waterFlow:");
-  Serial.print(waterFlow);
-  Serial.println("   L");
-//  delay(500);
-  uint8_t i;
-  float average;
-  samples = 0;
-  // take voltage readings from the voltage divider
-  digitalWrite(vd_power_pin, HIGH);
-  for (i = 0; i < samplingrate; i++) {
-    samples += analogRead(ntc_pin);
-    delay(10);
-  }
-  digitalWrite(vd_power_pin, LOW);
-  average = 0;
-  average = samples / samplingrate;
-  Serial.println("\n \n");
-  Serial.print("ADC readings ");
-  Serial.println(average);
-  // Calculate NTC resistance
-  average = 1023 / average - 1;
-  average = Rref / average;
-  Serial.print("Thermistor resistance ");
-  Serial.println(average);
-  float temperature;
-  temperature = average / nominal_resistance;     // (R/Ro)
-  temperature = log(temperature);                  // ln(R/Ro)
-  temperature /= beta;                   // 1/B * ln(R/Ro)
-  temperature += 1.0 / (nominal_temeprature + 273.15); // + (1/To)
-  temperature = 1.0 / temperature;                 // Invert
-  temperature -= 273.15;                         // convert absolute temp to C
-  Serial.print("Temperature ");
-  Serial.print(temperature);
-  Serial.println(" *C");
-  // Let's turn on the relay...
-	digitalWrite(RelayPin, LOW);
-	delay(2000);
-	
-	// Let's turn off the relay...
-	digitalWrite(RelayPin, HIGH);
-}
+double waterFlow;
+int FlowSensorPin = 4;
+int FlowSensorState = 0;
+float CountFlow = 0.0;
+int tmp = 0;
 
-void pulse()   //measure the quantity of square wave
+void setup(void)
 {
-  waterFlow += 1.0 / 75.0; // 75 pulses=1L (refer to product specification)
+  pinMode(FlowSensorPin, INPUT);
+  lcd.begin(16, 2);
+  lcd.init();
+  lcd.backlight();
+  lcd.setCursor(0,0); lcd.print(" ");
+  lcd.setCursor(0,0); lcd.print("Tin Tout(C) F(L)");
+  lcd.setCursor(0,1); lcd.print(" ");
+  //pinMode(vd_power_pin, OUTPUT);
+  Serial.begin(9600);
+  Serial.println("Hello!");
+  Serial.println("Getting single-ended readings from AIN0..3");
+  Serial.println("ADC Range: +/- 6.144V (1 bit = 3mV/ADS1015, 0.1875mV/ADS1115)");
+  ads.begin();
 }
 
+void loop(void)
+{
+  int16_t adc0, adc1;
+  adc0 = ads.readADC_SingleEnded(0);
+  adc1 = ads.readADC_SingleEnded(1);
+  Serial.println("\n \n");
+  Serial.print("ADC readings inside ");
+  Serial.println(adc0);
+  Serial.print("ADC readings outside");
+  Serial.println(adc1);
+  // Voltage :
+  float voltage_adc0 = ads.computeVolts(adc0); // calculate voltage
+  float voltage_adc1 = ads.computeVolts(adc1); // calculate voltage
+  Serial.println(voltage_adc0);
+  Serial.println(voltage_adc1);
+  // Resistance :
+  float R_in = Rref_in / ( 3.3/voltage_adc0 - 1);
+  float R_out = Rref_out / ( 3.3/voltage_adc1 - 1);
+  // Calculate NTC resistance
+  Serial.print("Thermistor resistance inside");
+  Serial.println(R_in);
+  Serial.print("Thermistor resistance outside");
+  Serial.println(R_out);
+
+  float temperature_in;
+  temperature_in = R_in / nominal_resistance_in;     // (R/Ro)
+  temperature_in = log(temperature_in);                  // ln(R/Ro)
+  temperature_in /= beta_in;                   // 1/B * ln(R/Ro)
+  temperature_in += 1.0 / (nominal_temperature + 273.15); // + (1/To)
+  temperature_in = 1.0 / temperature_in;                 // Invert
+  temperature_in -= 273.15;                         // convert absolute temp to C
+  
+  float temperature_out;
+  temperature_out = R_out / nominal_resistance_out;     // (R/Ro)
+  temperature_out = log(temperature_out);                  // ln(R/Ro)
+  temperature_out /= beta_out;                   // 1/B * ln(R/Ro)
+  temperature_out += 1.0 / (nominal_temperature + 273.15); // + (1/To)
+  temperature_out = 1.0 / temperature_out;                 // Invert
+  temperature_out -= 273.15;                         // convert absolute temp to C
+  Serial.print("Temperature inside ");
+  Serial.print(temperature_in);
+  Serial.println(" *C");
+  Serial.print("Temperature outside ");
+  Serial.print(temperature_out);
+  Serial.println(" *C");
+  tmp = digitalRead(FlowSensorPin);
+  if(FlowSensorState != tmp){
+    CountFlow += 1.0 / 150.0; // 150 pulses=1L (refer to product specification）
+    FlowSensorState = tmp;
+  }
+  delay(2000);
+  lcd.setCursor(0, 1);
+lcd.print(temperature_in, 1);
+lcd.print(" ");
+lcd.print(temperature_out, 1);
+lcd.print(" ");
+lcd.print(waterFlow,2);
+}
