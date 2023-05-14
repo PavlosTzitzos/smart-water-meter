@@ -101,6 +101,8 @@ Sources:
 
 [Covariance / Correlation for Time Series](https://journal.r-project.org/archive/2016/RJ-2016-049/RJ-2016-049.pdf)
 
+[Exponential Filter](https://www.megunolink.com/documentation/arduino-libraries/exponential-filter/)
+
 # Scientific Report
 
 [Matrix Education](https://www.matrix.edu.au/how-to-write-a-scientific-report/)
