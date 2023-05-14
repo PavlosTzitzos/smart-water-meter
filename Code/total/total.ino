@@ -15,35 +15,31 @@ Adafruit_ADS1115 ads;
 #define SSID_PASSWORD "hA69FbMAbfJgHNhb"
 ThingerESP8266 thing(USERNAME, DEVICE_ID, DEVICE_CREDENTIAL);
 
-//#define vd_power_pin 5        // 5V for the voltage divider
 #define nominal_resistance_in 10000       //Nominal resistance at 25⁰C
 #define nominal_resistance_out 100000       //Nominal resistance at 25⁰C
 #define nominal_temperature 25   // temperature for nominal resistance (almost always 25⁰ C)
-#define sampling_rate 5    // Number of samples
 #define beta_in 3950  // The beta coefficient or the B value of the thermistor (usually 3000-4000) check the datasheet for the accurate value.
 #define beta_out 3950  // The beta coefficient or the B value of the thermistor (usually 3000-4000) check the datasheet for the accurate value.
 #define Rref_in 1000   //Value of  resistor used for the voltage divider
 #define Rref_out 4700   //Value of  resistor used for the voltage divider
 
-int samples_in = 0;   //array to store the samples
-int samples_out = 0;   //array to store the samples
-
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
-double waterFlow;
-int FlowSensorPin = 2;
+//const int FlowSensorPin = 0;
 int FlowSensorState = 0;
 float CountFlow = 0.0;
 int tmp = 0;
+//volatile double waterFlow = 0;
 
-const int relayPin = 14;
+//#define relayPin 16
 
 float temperature_in;
 float temperature_out;
 
 void setup(void)
 {
-  pinMode(FlowSensorPin, INPUT);
+//  pinMode(FlowSensorPin, INPUT);
+  //attachInterrupt(digitalPinToInterrupt(FlowSensorPin), pulse, RISING);  //DIGITAL Pin 3: Interrupt 0
   lcd.begin(16, 2);
   lcd.init();
   lcd.backlight();
@@ -53,14 +49,14 @@ void setup(void)
   //pinMode(vd_power_pin, OUTPUT);
   Serial.begin(9600);
   thing.add_wifi(SSID, SSID_PASSWORD);
-  pinMode(LED_BUILTIN, OUTPUT);
-  pinMode(relayPin, OUTPUT);
-  thing["valve"] << digitalPin(relayPin);
+//  pinMode(LED_BUILTIN, OUTPUT);
+//  pinMode(relayPin, OUTPUT);
+  //thing["valve"] << digitalPin(relayPin);
   thing["meter"] >> [](pson& out)
   {
     out["temp_in"] = temperature_in;
     out["temp_out"] = temperature_out;
-    out["flow"] = waterFlow;
+    out["flow"] = CountFlow;
   };
   Serial.println("Hello!");
   Serial.println("Getting single-ended readings from AIN0..3");
@@ -111,17 +107,22 @@ void loop(void)
   Serial.print("Temperature outside ");
   Serial.print(temperature_out);
   Serial.println(" *C");
-  tmp = digitalRead(FlowSensorPin);
+/*  tmp = digitalRead(FlowSensorPin);
   if(FlowSensorState != tmp){
     CountFlow += 1.0 / 150.0; // 150 pulses=1L (refer to product specification）
     FlowSensorState = tmp;
-  }
+  }*/
   //delay(2000);
   lcd.setCursor(0, 1);
   lcd.print(temperature_in, 1);
   lcd.print(" ");
   lcd.print(temperature_out, 1);
   lcd.print(" ");
-  lcd.print(waterFlow,2);
+  //lcd.print(waterFlow,2);
   thing.handle();
 }
+/*
+void pulse()   //measure the quantity of square wave
+{
+  waterFlow += 1.0 / 150.0; // 150 pulses=1L (refer to product specification）
+}*/
