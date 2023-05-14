@@ -15,7 +15,6 @@ Adafruit_ADS1115 ads;
 #define SSID_PASSWORD "hA69FbMAbfJgHNhb"
 ThingerESP8266 thing(USERNAME, DEVICE_ID, DEVICE_CREDENTIAL);
 
-#define CS_PIN 4
 //#define vd_power_pin 5        // 5V for the voltage divider
 #define nominal_resistance_in 10000       //Nominal resistance at 25⁰C
 #define nominal_resistance_out 100000       //Nominal resistance at 25⁰C
@@ -32,12 +31,12 @@ int samples_out = 0;   //array to store the samples
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 double waterFlow;
-int FlowSensorPin = 4;
+int FlowSensorPin = 2;
 int FlowSensorState = 0;
 float CountFlow = 0.0;
 int tmp = 0;
 
-int relayPin = 0;
+const int relayPin = 14;
 
 float temperature_in;
 float temperature_out;
@@ -119,10 +118,10 @@ void loop(void)
   }
   //delay(2000);
   lcd.setCursor(0, 1);
-lcd.print(temperature_in, 1);
-lcd.print(" ");
-lcd.print(temperature_out, 1);
-lcd.print(" ");
-lcd.print(waterFlow,2);
-thing.handle();
+  lcd.print(temperature_in, 1);
+  lcd.print(" ");
+  lcd.print(temperature_out, 1);
+  lcd.print(" ");
+  lcd.print(waterFlow,2);
+  thing.handle();
 }
