@@ -1,6 +1,10 @@
 # smart-water-meter
 A smart water meter project.
 
+ # Results
+ Reluts of temperature and water flow data with their matching diagrams
+ ![image]()
+
 ![image](Diagrams/Total-Project.png)
 
 Components for all versions:
