@@ -4,6 +4,8 @@ A smart water meter project.
 # Results
 Reluts of temperature and water flow data with their matching diagrams
 
+We used [thinger.io](https://thinger.io/) to control the meter , collect , view and export data to csv.
+
 ![image](image_1.png)
 
 ![image](image_2.png)
