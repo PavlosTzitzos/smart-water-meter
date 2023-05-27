@@ -3,6 +3,8 @@ A smart water meter project.
 
 Final Report can be edited [here](https://duth-my.sharepoint.com/:w:/r/personal/pavltzit_duth_gr/_layouts/15/Doc.aspx?sourcedoc=%7B2AB144E3-B1B5-4A6E-AF54-4975F4B34FA7%7D&file=SMART%20WATER%20SYSTEM.docx&action=default&mobileredirect=true&DefaultItemOpen=1&login_hint=pavltzit%40duth.gr&ct=1685202940867&wdOrigin=OFFICECOM-WEB.START.EDGEWORTH&cid=239da23c-eafe-4ed0-afe4-d9f4eb27ecbc&wdPreviousSessionSrc=HarmonyWeb&wdPreviousSession=0d6668e6-cff2-44a6-89e0-647f5c03fb89) .
 
+[Code snippet tool](https://snappify.com/editor)
+
 # Results
 Reluts of temperature and water flow data with their matching diagrams
 
