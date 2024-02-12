@@ -7,7 +7,16 @@ Final Report can be edited [here](https://duth-my.sharepoint.com/:w:/r/personal/
 
 Presentation can be edited [here](https://duth-my.sharepoint.com/:p:/r/personal/pavltzit_duth_gr/_layouts/15/Doc.aspx?sourcedoc=%7B40ABDC63-A7F0-49AF-85B9-CC0C307CF11B%7D&file=SMART%20WATRER%20SYSTEM%201.pptx&action=edit&mobileredirect=true&wdNewAndOpenCt=1685300722138&ct=1685300722138&wdPreviousSession=c958bf8d-5069-4e00-bc51-23fe6be583ac&wdOrigin=OFFICECOM-WEB.START.UPLOAD&login_hint=pavltzit%40duth.gr) .
 
-# Results
+## To Do List
+
+- [ ] fix readme file
+- [ ] fix code size
+- [ ] take more measurements
+- [ ] make some analysis
+- [ ] use template for the report
+- [ ] use esp32 instead of wemos
+
+## Results
 Reluts of temperature and water flow data with their matching diagrams
 
 We used [thinger.io](https://thinger.io/) to control the meter , collect , view and export data to csv.
